@@ -78,9 +78,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Make install executeable
+        run: chmod +x .github/scripts/install-appimage.sh
       - name: Install Dependencies
         run: .github/scripts/install-appimage.sh
-
+      - name: Make build executeable
+        run: chmod +x .github/scripts/build-appimage.sh
       - name: Build & Test
         run: .github/scripts/build-appimage.sh
 
