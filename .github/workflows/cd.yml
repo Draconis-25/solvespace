@@ -72,21 +72,26 @@ jobs:
           name: windows
           path: build/bin/RelWithDebInfo/solvespace.exe
           
-  build_release_appimage: 
-     needs: [test_ubuntu, test_windows, test_macos] 
-     name: Build Release Appimage 
-     runs-on: ubuntu-latest
-     steps: 
-       - uses: actions/checkout@v2 
-       - name: Install Dependencies 
-         run: .github/scripts/install-appimage.sh 
-       - name: Build & Test Appimage
-         run: .github/scripts/build-appimage.sh
-       - name: Upload artifact 
-         uses: actions/upload-artifact@v2 
-         with: 
-           name: appimage 
-           path: build/SolveSpace*.appimage
+  build_release_appimage:
+    needs: [test_ubuntu, test_windows, test_macos]
+    name: Build Release Appimage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: .github/scripts/install-appimage.sh
+
+      - name: Build & Test
+        run: .github/scripts/build-appimage.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: appimage
+          path: build/SolveSpace*.appimage
+          
+   
+
 
   build_release_windows_openmp:
     needs: [test_ubuntu, test_windows, test_macos]
