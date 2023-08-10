@@ -16,4 +16,4 @@ wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/lin
 chmod +x linuxdeploy-x86_64.AppImage
 
 # run linuxdeploy and generate an AppDir
-./linuxdeploy-x86_64.AppImage --appdir AppDir --output SolveSpace.appimage
+./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
